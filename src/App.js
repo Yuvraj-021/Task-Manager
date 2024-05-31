@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import AddTask from "./components/Add Task";
+import Task from "./components/TaskList";
+import TaskList from "./components/TaskList";
+import { useDispatch, useSelector } from "react-redux";
+import { Button } from "@mui/material";
+import { deleteAll } from "./redux/actions";
 
 function App() {
+
+  const dispatch=useDispatch();
+  const tasks = useSelector((state)=> state.operationsReducer);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+       <AddTask/>
+       <TaskList/>
+        {tasks.length>1 && (
+          <Button variant="contained" onClick={()=>dispatch(deleteAll())}>DELETE ALL</Button>
+        )}
+      </div>
+    </>
   );
 }
 

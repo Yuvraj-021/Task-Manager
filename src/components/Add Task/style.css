@@ -1,0 +1,17 @@
+.searchtextfield {
+  width: 50vw !important;
+  align-content: center;
+}
+
+.add-task-grid-item{
+  margin-top: 10vh !important;
+  margin-left: 20vw !important;
+}
+
+.add-task-btn{
+  margin-top: 10vh !important;
+  height: 55px !important;
+  display: flex !important;
+  align-content: center;
+  justify-content: center !important;
+}
