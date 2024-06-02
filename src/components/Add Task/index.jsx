@@ -31,7 +31,7 @@ const AddTask = ({ editFormVisibility, editTask, cancelUpdate }) => {
   // update form submit
   const handleEditTask = (task) => {
     //e.preventDefault();
-    
+
     let editedObj = {
       id: editTask.id,
       task: editValue,
@@ -44,60 +44,51 @@ const AddTask = ({ editFormVisibility, editTask, cancelUpdate }) => {
   return (
     <>
       {editFormVisibility === false ? (
-        <Grid container spacing={1}>
-          <Grid item sx={6} md={6} className="add-task-grid-item">
-            <TextField
-              id="outlined-search"
-              label="Add Task"
-              type="search"
-              className="searchtextfield"
-              value={newTask}
-              onChange={(e) => setNewTask(e.target.value)}
-            />
-          </Grid>
-          <Grid item sx={3} md={3}>
-            <Button
-              variant="contained"
-              className="add-task-btn"
-              onClick={() => addNewTask(newTask)}
-            >
-              Add Task
-            </Button>
-          </Grid>
-          <Grid></Grid>
-        </Grid>
+        <div className="add-task-grid">
+          <TextField
+            id="outlined-search"
+            label="Add Task"
+            type="search"
+            className="searchtextfield"
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
+          />
+
+          <Button
+            variant="contained"
+            className="add-task-btn"
+            onClick={() => addNewTask(newTask)}
+          >
+            Add Task
+          </Button>
+        </div>
       ) : (
-        <Grid container spacing={1}>
-          <Grid item sx={6} md={6} className="add-task-grid-item">
-            <TextField
-              id="outlined-search"
-              label="Update Task"
-              type="search"
-              className="searchtextfield"
-              value={editValue || ""}
-              onChange={(e) => setEditValue(e.target.value)}
-            />
-          </Grid>
-          <Grid item sx={3} md={3}>
-            <Button
-              variant="contained"
-              className="add-task-btn"
-              onClick={() => handleEditTask(editValue)}
-            >
-              Update Task
-            </Button>
-          </Grid>
-          <Grid item sx={1} md={1}>
-            <Button
-              variant="contained"
-              className="add-task-btn"
-              onClick={cancelUpdate}
-            >
-              Back
-            </Button>
-          </Grid>
-          <Grid></Grid>
-        </Grid>
+        <div className="add-task-grid">
+          <TextField
+            id="outlined-search"
+            label="Update Task"
+            type="search"
+            className="searchtextfield"
+            value={editValue || ""}
+            onChange={(e) => setEditValue(e.target.value)}
+          />
+
+          <Button
+            variant="contained"
+            className="add-task-btn"
+            onClick={() => handleEditTask(editValue)}
+          >
+            Update Task
+          </Button>
+
+          <Button
+            variant="contained"
+            className="add-task-btn"
+            onClick={cancelUpdate}
+          >
+            Back
+          </Button>
+        </div>
       )}
     </>
   );

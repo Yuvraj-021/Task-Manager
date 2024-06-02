@@ -1,12 +1,7 @@
 .App{
-  max-width: 1440px;
-  width: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  margin: 0 auto;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -14,4 +9,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.delete-all-btn{
+  margin-top: 10px !important;
+  width: 150px;
 }

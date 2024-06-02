@@ -7,12 +7,14 @@ import "./style.css";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Edit } from "@mui/icons-material";
 import { handleCheckbox, removeTask, updateTask } from "../../redux/actions";
+import { Card } from "@mui/material";
 
 const TaskList = ({ handleEditClick, editFormVisibility }) => {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.operationsReducer);
   return tasks.map((currentTask) => (
-    <div key={tasks.id} className="todo-box">
+    <div className="todo-box-container">
+    <Card key={tasks.id} className="todo-box">
       <div className="content">
         {editFormVisibility === false && (
           <input
@@ -28,6 +30,8 @@ const TaskList = ({ handleEditClick, editFormVisibility }) => {
               ? { textDecoration: "line-through" }
               : { textDecoration: "none" }
           }
+
+          className="task-item"
         >
           {currentTask.task}
         </p>
@@ -44,6 +48,7 @@ const TaskList = ({ handleEditClick, editFormVisibility }) => {
           </>
         )}
       </div>
+    </Card>
     </div>
   ));
 };

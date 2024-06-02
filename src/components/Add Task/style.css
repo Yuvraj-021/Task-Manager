@@ -3,15 +3,18 @@
   align-content: center;
 }
 
-.add-task-grid-item{
+
+.add-task-grid{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 10vh !important;
-  margin-left: 20vw !important;
 }
 
 .add-task-btn{
-  margin-top: 10vh !important;
   height: 55px !important;
   display: flex !important;
   align-content: center;
   justify-content: center !important;
+  margin-left: 10px !important;
 }

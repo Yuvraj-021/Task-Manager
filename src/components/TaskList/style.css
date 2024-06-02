@@ -1,22 +1,36 @@
 .todo-box .content p{
     margin-top: -6px;
-    margin-left: 6px;
+    margin-left: 0px;
 }
 
 .actions-box{
     cursor: pointer;
+    
 }
 
 .todo-box{
-    width: 400px;
-    margin: 0 auto;
+    width: 60vw;
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 16px;
+    border: none;
+    background-color: rgb(237, 247, 255) !important;
 }
 
 .content{
     margin-top: 10px;
     display: flex !important;
     flex-direction: row !important;
+}
+
+.todo-box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-item{
+    margin-left: 10px !important;
 }

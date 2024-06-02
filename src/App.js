@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@mui/material";
 import { deleteAll } from "./redux/actions";
 import { useState } from "react";
+import Headers from "./components/Headers";
 
 function App() {
   //dispatch function to dispatch an action
@@ -36,6 +37,7 @@ function App() {
   return (
     <>
       <div className="App">
+        <Headers/>
         <AddTask
           editFormVisibility={editFormVisibility}
           editTask={editTask}
@@ -46,7 +48,7 @@ function App() {
           editFormVisibility={editFormVisibility}
         />
         {tasks.length > 1 && (
-          <Button variant="contained" onClick={() => dispatch(deleteAll())}>
+          <Button variant="contained" className="delete-all-btn" onClick={() => dispatch(deleteAll())}>
             DELETE ALL
           </Button>
         )}
