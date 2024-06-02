@@ -6,19 +6,49 @@ import TaskList from "./components/TaskList";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@mui/material";
 import { deleteAll } from "./redux/actions";
+import { useState } from "react";
 
 function App() {
+  //dispatch function to dispatch an action
+  const dispatch = useDispatch();
 
-  const dispatch=useDispatch();
-  const tasks = useSelector((state)=> state.operationsReducer);
+  //getting tasks state for conditional rendering
+  const tasks = useSelector((state) => state.operationsReducer);
+
+  // update form visibility state
+  const [editFormVisibility, setEditFormVisibility] = useState(false);
+
+  // editTodo state
+  const [editTask, setEditTask] = useState("");
+
+  // this function will trigger when someone clicks the edit icon
+  const handleEditClick = (task) => {
+    setEditFormVisibility(true);
+    setEditTask(task);
+    //console.log(task);
+  };
+
+  // back button click
+  const cancelUpdate = () => {
+    setEditFormVisibility(false);
+  };
 
   return (
     <>
       <div className="App">
-       <AddTask/>
-       <TaskList/>
-        {tasks.length>1 && (
-          <Button variant="contained" onClick={()=>dispatch(deleteAll())}>DELETE ALL</Button>
+        <AddTask
+          editFormVisibility={editFormVisibility}
+          editTask={editTask}
+          cancelUpdate={cancelUpdate}
+        />
+        <TaskList
+          handleEditClick={handleEditClick}
+          editFormVisibility={editFormVisibility}
+        />
+        {tasks.length > 1 && (
+          <Button variant="contained" onClick={() => dispatch(deleteAll())}>
+            DELETE ALL
+          </Button>
         )}
       </div>
     </>
